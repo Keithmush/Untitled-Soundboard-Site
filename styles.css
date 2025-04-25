@@ -1,0 +1,57 @@
+button:active {
+    background-color: yellow;
+    transform: scale(1.1);
+}
+
+button:hover {
+    background-color: lightblue;
+    transition: 0.3s;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
+}
+
+button:active {
+    animation: shake 0.3s ease-in-out;
+}
+
+.sound-buttons button:active {
+    animation: shake 0.3s;
+}
+
+h1 {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body.dark-mode {
+    background-color: #222;
+    color: white;
+}
+
+.title {
+    font-family: 'Calibri', monospace; /* Change this to any font you prefer */
+    font-size: 36px; /* Adjust the size */
+    font-weight: bold; /* Makes it stand out */
+}
+
+.sound-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+
