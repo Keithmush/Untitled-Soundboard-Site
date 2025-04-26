@@ -1,52 +1,3 @@
-const sounds = [
-  "/mnt/data/sound1.mp3",
-  "/mnt/data/sound2.mp3",
-  "/mnt/data/sound3.mp3",
-  "/mnt/data/sound4.mp3",
-  "/mnt/data/sound5.mp3",
-  "/mnt/data/sound6.mp3",
-  "/mnt/data/sound7.mp3",
-  "/mnt/data/sound8.mp3",
-  "/mnt/data/sound9.mp3",
-  "/mnt/data/sound10.mp3",
-  "/mnt/data/sound11.mp3",
-  "/mnt/data/sound12.mp3",
-  "/mnt/data/sound13.mp3",
-  "/mnt/data/sound14.mp3",
-  "/mnt/data/sound15.mp3",
-  "/mnt/data/sound16.mp3"
-];
-
-const chaosSoundPath = "/mnt/data/legendarypull.mp3";
-const chaosBackground = "/mnt/data/tele.webp";
-
-let currentAudios = [];
-let globalVolume = 1.0;
-let canClick = true;
-
-// Generate sound buttons
-const soundboard = document.getElementById('soundboard');
-sounds.forEach((sound, index) => {
-  const button = document.createElement('div');
-  button.className = 'sound-button';
-  button.innerText = `Sound ${index + 1}`;
-  button.onclick = () => {
-    if (canClick) {
-      playSound(index);
-      canClick = false;
-      setTimeout(() => {
-        canClick = true;
-      }, 100); // 0.1 seconds cooldown
-    }
-  };
-  soundboard.appendChild(button);
-});
-
-function playSound(index) {
-  const audio = new Audio(sounds[index]);
-  audio.volume = globalVolume;
-  audio.play();
-  currentAudios.push(audio);
 }
 
 function stopAllSounds() {
@@ -99,6 +50,7 @@ window.onload = function () {
     document.body.appendChild(chaosText);
   }
 };
+
 
 
 
