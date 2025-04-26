@@ -1,56 +1,76 @@
-button:active {
-    background-color: yellow;
-    transform: scale(1.1);
-}
-
-button:hover {
-    background-color: lightblue;
-    transition: 0.3s;
-}
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
-}
-
-button:active {
-    animation: shake 0.3s ease-in-out;
-}
-
-.sound-buttons button:active {
-    animation: shake 0.3s;
+body {
+  background-color: #121212;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+  background-size: cover;
+  background-position: center;
 }
 
 h1 {
-    animation: fadeIn 2s ease-in-out;
+  margin-bottom: 1rem;
+  color: #00ffcc;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+#site-title {
+  color: black;
+  font-family: Calibri, sans-serif;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
-body.dark-mode {
-    background-color: #222;
-    color: white;
-}
-
-.title {
-    font-family: 'Calibri', monospace; /* Change this to any font you prefer */
-    font-size: 36px; /* Adjust the size */
-    font-weight: bold; /* Makes it stand out */
+.soundboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
 }
 
 .sound-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    display: inline-block;
+  background-color: #1e1e1e;
+  border: 2px solid #00ffcc;
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  text-align: center;
+}
+
+.sound-button:hover {
+  background-color: #00ffcc;
+  color: #000;
+}
+
+.controls {
+  margin-bottom: 1.5rem;
+}
+
+.control-button {
+  background-color: #1e1e1e;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  transition: 0.2s ease;
+}
+
+.control-button:hover {
+  background-color: #00ffcc;
+  color: #000;
+}
+
+.volume-slider {
+  width: 150px;
+  margin-left: 1rem;
 }
 
 
