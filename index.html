@@ -3,30 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Untitled Soundboard Site</title>
+  <title>Untitled Soundboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎧 Soundboard</h1>
+  <h1>🎧 Untitled Soundboard</h1>
 
   <div class="controls">
-    <button class="control-button" onclick="stopAllSounds()">Stop All Sounds</button>
-    <button class="control-button" onclick="playRandomSound()">Play Random Sound</button>
+    <button class="control-button" onclick="stopAllSounds()">⏹ Stop All</button>
+    <button class="control-button" onclick="playRandomSound()">🔀 Random</button>
     <input type="range" min="0" max="1" step="0.01" value="1" class="volume-slider" id="volumeSlider" />
   </div>
 
-  <h2 id="site-title">Untitled Soundboard Site</h2>
-
-  <div class="soundboard" id="soundboard">
-    <!-- Buttons will be created here by JavaScript -->
+  <div id="soundboard">
+    <!-- Sound buttons added by JavaScript -->
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-<link rel="stylesheet" href="style.css?v=2" />
-<script src="script.js?v=2"></script>
 
 
 
