@@ -1,49 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<link rel="stylesheet" href="styles.css">
+<h2 style="color: black; font-family: Calibri, sans-serif; margin-bottom: 1rem;">Untitled Soundboard Site</h2>
 
-    <meta charset="UTF-8">
-    <title>Untitled Soundboard Site</title>
-</head>
-<body>
+<script>
+    const sounds = [
+      "/mnt/data/sound1.mp3",
+      "/mnt/data/sound2.mp3",
+      "/mnt/data/sound3.mp3",
+      "/mnt/data/sound4.mp3",
+      "/mnt/data/sound5.mp3",
+      "/mnt/data/sound6.mp3",
+      "/mnt/data/sound7.mp3",
+      "/mnt/data/sound8.mp3",
+      "/mnt/data/sound9.mp3",
+      "/mnt/data/sound10.mp3",
+      "/mnt/data/sound11.mp3",
+      "/mnt/data/sound12.mp3",
+      "/mnt/data/sound13.mp3",
+      "/mnt/data/sound14.mp3",
+      "/mnt/data/sound15.mp3",
+      "/mnt/data/sound16.mp3"
+    ];
 
-    <h1 class="title">Untitled Soundboard Site</h1>
-<script src="script.js"></script>
+    const chaosSoundPath = "/mnt/data/legendarypull.mp3";
+    const chaosBackground = "/mnt/data/tele.webp";
 
-</body>
+    let currentAudios = [];
+    let globalVolume = 1.0;
+    let canClick = true; // Cooldown flag
 
-</html>
+    // Generate sound buttons
+    const soundboard = document.getElementById('soundboard');
+    sounds.forEach((sound, index) => {
+      const button = document.createElement('div');
+      button.className = 'sound-button';
+      button.innerText = `Sound ${index + 1}`;
+      button.onclick = () => {
+        if (canClick) {
+          playSound(index);
+          canClick = false;
+          setTimeout(() => {
+            canClick = true;
+          }, 100); // 0.1 seconds = 100 milliseconds
+        }
+      };
+      soundboard.appendChild(button);
+    });
 
-<button onclick="playSound('sound1.mp3')">صوت😂😂 عربي مضحك</button>
-<button onclick="playSound('sound2.mp3')">Fart</button>
-<button onclick="playSound('sound3.mp3')">Explosion</button>
-<button onclick="playSound('sound4.mp3')">Tung Tung Tung</button>
-<button onclick="playSound('sound5.mp3')">Samsung Over The Horizon</button>
-<button onclick="playSound('sound6.mp3')">Correct Sound</button>
-<button onclick="playSound('sound7.mp3')">Incorrect Buzzer</button>
-<button onclick="playSound('sound8.mp3')">Goofy Snore</button>
-<button onclick="playSound('sound9.mp3')">Violin Screech</button>
-<button onclick="playSound('sound10.mp3')">Iphone Notification</button>
-<button onclick="playSound('sound11.mp3')">Clash Of Clans Laugh</button>
-<button onclick="playSound('sound12.mp3')">Bad To The Bone Riff</button>
-<button onclick="playSound('sound13.mp3')">Goofy Laugh</button>
-<button onclick="playSound('sound14.mp3')">Vine Boom</button>
-<button onclick="playSound('sound15.mp3')">Fart 2</button>
-<button onclick="playSound('sound16.mp3')">Goofy Alarm</button>
+    function playSound(index) {
+      const audio = new Audio(sounds[index]);
+      audio.volume = globalVolume;
+      audio.play();
+      currentAudios.push(audio);
+    }
 
-<button onclick="playRandomSound()">Play Random Sound</button>
+    function stopAllSounds() {
+      currentAudios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+      currentAudios = [];
+    }
 
-<button onclick="stopAllSounds()">Stop All Sounds</button>
+    function playRandomSound() {
+      if (canClick) {
+        const randomIndex = Math.floor(Math.random() * sounds.length);
+        playSound(randomIndex);
+        canClick = false;
+        setTimeout(() => {
+          canClick = true;
+        }, 100);
+      }
+    }
 
+    const volumeSlider = document.getElementById('volumeSlider');
+    volumeSlider.addEventListener('input', function() {
+      globalVolume = parseFloat(this.value);
+    });
 
-<label for="volume">Volume:</label>
-<input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+    window.onload = function () {
+      const chance = Math.floor(Math.random() * 2500) + 1;
+      if (chance === 1) {
+        document.body.style.backgroundImage = `url('${chaosBackground}')`;
+        const chaosAudio = new Audio(chaosSoundPath);
+        chaosAudio.loop = true;
+        chaosAudio.volume = 1.0;
+        chaosAudio.play();
+        currentAudios.push(chaosAudio);
 
-<button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-
-https://drive.google.com/drive/folders/1pOqs8sL4kFKoNuTWTMJDfRnYq5jYhehi?usp=drive_link
-
+        const chaosText = document.createElement('div');
+        chaosText.innerText = "نحن قادمون ، استعد لوصولنا.";
+        chaosText.style.position = "fixed";
+        chaosText.style.top = "50%";
+        chaosText.style.left = "50%";
+        chaosText.style.transform = "translate(-50%, -50%)";
+        chaosText.style.color = "red";
+        chaosText.style.fontSize = "4rem";
+        chaosText.style.fontWeight = "bold";
+        chaosText.style.textAlign = "center";
+        chaosText.style.zIndex = "9999";
+        chaosText.style.fontFamily = "Arial, sans-serif";
+        document.body.appendChild(chaosText);
+      }
+    };
+</script>
 
 
 
