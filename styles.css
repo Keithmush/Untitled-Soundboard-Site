@@ -1,76 +1,68 @@
 body {
   background-color: #121212;
-  color: #fff;
-  font-family: Arial, sans-serif;
+  color: #ffffff;
+  font-family: Calibri, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
   padding: 2rem;
-  background-size: cover;
-  background-position: center;
+  margin: 0;
+  min-height: 100vh;
 }
 
 h1 {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #00ffcc;
+  color: #00ffc8;
 }
 
-#site-title {
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.control-button {
+  background-color: #1f1f1f;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.control-button:hover {
+  background-color: #00ffc8;
   color: black;
-  font-family: Calibri, sans-serif;
-  margin-bottom: 1rem;
-  font-weight: bold;
-  font-size: 2rem;
 }
 
-.soundboard {
+.volume-slider {
+  width: 150px;
+}
+
+#soundboard {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 1rem;
   width: 100%;
   max-width: 800px;
 }
 
 .sound-button {
-  background-color: #1e1e1e;
-  border: 2px solid #00ffcc;
+  background-color: #1f1f1f;
   padding: 1rem;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.2s ease;
+  border-radius: 8px;
   text-align: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1rem;
 }
 
 .sound-button:hover {
-  background-color: #00ffcc;
-  color: #000;
-}
-
-.controls {
-  margin-bottom: 1.5rem;
-}
-
-.control-button {
-  background-color: #1e1e1e;
-  border: 2px solid #00ffcc;
-  color: #00ffcc;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  margin: 0 0.5rem;
-  transition: 0.2s ease;
-}
-
-.control-button:hover {
-  background-color: #00ffcc;
-  color: #000;
-}
-
-.volume-slider {
-  width: 150px;
-  margin-left: 1rem;
+  background-color: #00ffc8;
+  color: black;
 }
 
 
